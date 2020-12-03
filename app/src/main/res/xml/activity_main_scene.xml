@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/imgHeader" />
+        <Constraint android:id="@+id/txtTitle" />
+        <Constraint android:id="@+id/layoutSearch" />
+        <Constraint android:id="@+id/txtSlogan" />
+        <Constraint android:id="@+id/layoutContent" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/imgHeader"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="20.0dip"
+            app:layout_constraintBottom_toBottomOf="@+id/imgHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgHeader" />
+        <Constraint
+            android:id="@+id/layoutSearch"
+            android:layout_width="fill_parent"
+            android:layout_marginStart="170.0dip"
+            android:layout_marginEnd="20.0dip"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTitle"
+            app:layout_constraintStart_toEndOf="@+id/txtTitle"
+            app:layout_constraintTop_toTopOf="@+id/txtTitle" />
+        <Constraint
+            android:id="@+id/txtSlogan"
+            android:alpha="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/layoutSearch" />
+        <Constraint
+            android:id="@+id/layoutContent"
+            android:layout_width="fill_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgHeader" />
+    </ConstraintSet>
+    <Transition
+        android:duration="1000"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/layoutContent"
+            app:touchAnchorSide="top" />
+    </Transition>
+</MotionScene>
